@@ -1,0 +1,60 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "base",
+        "version": "1.0"
+    },
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "用户登录"
+                ],
+                "summary": "用户登录",
+                "operationId": "d55f416d61f094eb6038b566bc6e4596",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "用户名",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "密码",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "captcha",
+                        "in": "query",
+                        "description": "验证码",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "验证key",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
