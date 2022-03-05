@@ -5,13 +5,13 @@
         "version": "1.0"
     },
     "paths": {
-        "/login": {
+        "/api/basics/login": {
             "post": {
                 "tags": [
                     "用户登录"
                 ],
                 "summary": "用户登录",
-                "operationId": "d55f416d61f094eb6038b566bc6e4596",
+                "operationId": "b6b6ec07711a90098930cdfa4f2475ff",
                 "parameters": [
                     {
                         "name": "username",

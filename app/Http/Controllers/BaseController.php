@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * @OA\Info(
- *     title="base",
+ *     title="basics",
  *     version="1.0"
  * )
  */
