@@ -44,6 +44,7 @@ class EnableCrossRequestMiddleware
         $allow_origin = [
             'http://localhost:8080',
             'http://localhost:8081',
+            'http://192.168.0.102:8081',
             'http://manage.evl.pro.rxthink.cn',
             'http://lv8.x-back-end:7888',
         ];
