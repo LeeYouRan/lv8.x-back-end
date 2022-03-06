@@ -20,6 +20,7 @@ namespace Modules\Basics\Http\Controllers;
 
 use Modules\Basics\Models\ActionLogModel;
 use Modules\Basics\Services\LoginService;
+use Modules\Basics\Http\Requests\LoginRequest;
 
 /**
  * 登录控制器
@@ -72,7 +73,7 @@ class LoginController extends Backend
      *   @OA\Response(response="200", description="successful operation")
      * )
      */
-    public function login()
+    public function login(LoginRequest $request)
     {
         $result = $this->service->login();
         return $result;

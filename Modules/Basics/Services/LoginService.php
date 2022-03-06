@@ -100,29 +100,33 @@ class LoginService extends BaseService
         $username = trim($param['username']);
         // 密码
         $password = trim($param['password']);
+        /**
+         * winston
+         * 验证规则提出到 Requests 下处理
+         */
         // 验证规则
-        $rules = [
-            'username' => 'required|min:2|max:20',
-            'password' => 'required|min:6|max:20',
-            'captcha' => ['required'],
-        ];
-        // 规则描述
-        $messages = [
-            'required' => ':attribute为必填项',
-            'min' => ':attribute长度不符合要求',
-            'captcha.required' => '验证码不能为空',
-        ];
-        // 验证
-        $validator = Validator::make($param, $rules, $messages, [
-            'username' => '用户名称',
-            'password' => '登录密码'
-        ]);
-        if ($validator->fails()) {
-            $errors = $validator->errors()->getMessages();
-            foreach ($errors as $key => $value) {
-                return message($value[0], false);
-            }
-        }
+//        $rules = [
+//            'username' => 'required|min:2|max:20',
+//            'password' => 'required|min:6|max:20',
+//            'captcha' => ['required'],
+//        ];
+//        // 规则描述
+//        $messages = [
+//            'required' => ':attribute为必填项',
+//            'min' => ':attribute长度不符合要求',
+//            'captcha.required' => '验证码不能为空',
+//        ];
+//        // 验证
+//        $validator = Validator::make($param, $rules, $messages, [
+//            'username' => '用户名称',
+//            'password' => '登录密码'
+//        ]);
+//        if ($validator->fails()) {
+//            $errors = $validator->errors()->getMessages();
+//            foreach ($errors as $key => $value) {
+//                return message($value[0], false);
+//            }
+//        }
         // 验证码校验
         $key = isset($param['key']) ? trim($param['key']) : "";
         $captcha = $this->model->getCache($key);

@@ -36,9 +36,17 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+//$app->singleton(
+//    Illuminate\Contracts\Debug\ExceptionHandler::class,
+//    App\Exceptions\Handler::class
+//);
+/**
+ * Winston
+ * 注册自定义异常
+ */
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Modules\Common\Exceptions\Handler::class
 );
 
 /*

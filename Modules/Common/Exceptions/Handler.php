@@ -107,14 +107,14 @@ class Handler extends ExceptionHandler
         if($request->is("api/*")){
             if ($e instanceof ApiException) {
                 $result = [
-                    "status" => $e->getCode(),
-                    "message" => $e->getMessage(),
+                    "code" => $e->getCode(),
+                    "msg" => $e->getMessage(),
                 ];
                 return response()->json($result,CodeData::INTERNAL_SERVER_ERROR);exit();
             }else if($e instanceof ValidationException){
                 $result = [
-                    "status"=>StatusData::BAD_REQUEST,
-                    "message"=>array_values($e->errors())[0][0]
+                    "code"=>StatusData::BAD_REQUEST,
+                    "msg"=>array_values($e->errors())[0][0]
                 ];
                 return response()->json($result,CodeData::BAD_REQUEST); exit();
             }
@@ -127,13 +127,13 @@ class Handler extends ExceptionHandler
 						"trace"=>$e->getTrace()
 					];
 					if($this->status == StatusData::MODEL_NOT_FOUND_EXCEPTION){
-						$data['message'] = $e->getModel();
+						$data['msg'] = $e->getModel();
 					}else{
-						$data['message'] = $e->getMessage();
+						$data['msg'] = $e->getMessage();
 					}
 					return response()->json([
-						"status" => $this->status,
-						"message" => env("APP_DEBUG")?$this->message:MessageData::COMMON_EXCEPTION,
+						"code" => $this->status,
+						"msg" => env("APP_DEBUG")?$this->message:MessageData::COMMON_EXCEPTION,
 						"data"=>$data,
 					],CodeData::INTERNAL_SERVER_ERROR);exit();
 				}

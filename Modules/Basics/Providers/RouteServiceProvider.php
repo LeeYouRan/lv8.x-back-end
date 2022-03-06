@@ -25,6 +25,9 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+        /**
+         * Winston
+         */
         //验证正整数
         Validator::extend('is_positive_integer', function($attribute, $value, $parameters, $validator) {
             if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0) {
