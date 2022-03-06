@@ -57,7 +57,7 @@ Route::prefix('basics')->group(function() {
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout']);
 
-    Route::group(['middleware' => ['user.login']], function () {
+    Route::group(['middleware' => ['basics.user.login']], function () {
 
         // 文件上传
         Route::prefix('upload')->group(function () {
